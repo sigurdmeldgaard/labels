@@ -39,24 +39,40 @@ for i in [- dash_length, sum([0, d,w,d,w,3*d/4])]:
         offsety += j
 
 
+push_defaults()
+transform(None)
+g=group()
+tr = inkex.Transform()
+tr.add_translate(d+(w-13)/2, 1.4*h/3)
+tr.add_scale(0.03)
+push_defaults()
+transform(tr)
+im = image('file:///home/yogurth/script/apple_cinnamon.jpg', (0,0), True)
+g.append(im)
+pop_defaults()
+g.append(text("Jul", (d+w/2,h/3),font_size="6pt", text_anchor="middle", dominant_baseline='middle',font_family="C059"))
+#g.append(text("Æble-kanel", (d+w/2,h/3*2),font_size="4pt", text_anchor="middle", dominant_baseline='middle',font_family="C059"))
+re = rect((d+w+d + ingredient_margin_x, ingredient_margin_y),(d+w+d+w - ingredient_margin_x, h-ingredient_margin_y), stroke=None)
+g.append(re)
+g.append(text("Ingredienser: Æblemost*, Olivenolie*, Solsikkeolie*, Sheashmør*, Kokosolie*, Vand, Lud, Ingefær*, Kanel*, Essentielle olier (Kanel, Patchouli)  *=øko",(0,0),
+        font_size="1.8pt",
+        text_anchor="middle",
+        shape_inside=re))
+g.to_def()
+pop_defaults()
+
+guides.clear()
 offsety = 0
 for j in [h]*(copies):
-    text("Shampoo bar", (d+w/2,offsety+h/2),font_size="6pt", text_anchor="middle", dominant_baseline='middle')
-    re = rect((d+w+d + ingredient_margin_x, offsety+ingredient_margin_y),(d+w+d+w - ingredient_margin_x, offsety+h-ingredient_margin_y), stroke=None)
+    tr = inkex.Transform()
+    tr.add_translate(0, offsety)
 
-    #t = TextElement(x="0",y="0")
-    #t.text="Ingredients: Oil, water, lye, some more stuff"
-    #inkex_object(t, transform=None)
-    push_defaults()
-    transform(None)
-    text("Ingredients: Oil, water, lye, some more stuff",(0,0),font_size="2pt",shape_inside=re)
-    pop_defaults()
-
-    """     root = FlowRoot()
-    region = FlowRegion()
-    region.add(rect((d+w+d, offsety),(d+w+d+w, offsety+h)))
-    root.add(region)
-    div = FlowDiv()
-    para = FlowPara() """
+    clone(g, transform=tr)
     offsety += j
+    g1 = guide((0, offsety+marginy), 0)
+    guides.extend([g1])
+offsetx = marginx
+for i in [0,d,w,d,w,3*d/4]:
+    offsetx+=i
+    guides.extend([guide((offsetx, 0), 90)])
 pop_defaults()
