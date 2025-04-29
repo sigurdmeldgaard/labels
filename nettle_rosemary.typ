@@ -56,11 +56,12 @@ for j in (h,)*copies {
     translate(x:d)
     let image_height = h * 0.7
     let image_y = (h/6*4)-1mm
-    // content(((w/2),- (h/2 +4mm)),  image("script/wax.jpg",height: h*0.6))
-        content(((w/2),- image_y),  image("calendula.png",height: image_height))
-              //  content(((w/4*3),-image_y),  image("script/mint.jpg",height: image_height))
-    content((w/2,-(h/5)),text(13pt,font: "C059")[Morgenfrue Salt-Scrub])
-    // content((w/2,-(h/5)*2),text(12pt,font: "C059")[Salt-scrub])
+    content(((w/6),- (h/2 +4mm)),  image("rosemary.png",height: h*0.6))
+        // content(((w/2),- image_y),  image("rosemary.png",height: image_height))
+               content(((w/6*5),-image_y),  image("nettle.png",height: image_height))
+    content((w/2,-(h/5)),text(13.5pt,font: "C059")[Brændenælde])
+        content((w/2,-(h/5*2.2)),text(13pt,font: "C059")[Rosmarin])
+    content((w/2,-(h/5)*3.7),text(12pt,font: "C059")[Shampoobar])
     // rect((0,0),(w,-h)) // debug
     // Back
     translate(x:w+d)
@@ -69,7 +70,7 @@ for j in (h,)*copies {
       #box(height: h,width: w,
       align(center+horizon)[
       #text(7.5pt,font: "C059")[
-        Ingredienser: Kokosolie\*, Morgenfrue\*, Vand, Lud, Essentielle Olier (Citron\*, Citrongræs) \*=øko
+        Ingredienser: Olivenolie\*, Sheashmør\*, Kokosolie\*, Abrikoskerneolie\*, Ricinusolie\*, Arganolie\*, Vand, Æbleeddike\*, Brændenælde\*, Essentielle olier (Pebermynte\*, Rosmarin\*, Tea Tree\*)  \*=øko
         ] ])
     ], anchor: "center")
   })

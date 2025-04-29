@@ -10,7 +10,7 @@ let marginx = 10mm
 let marginy = 10mm
 let w = 45mm
 let wback=46mm
-let d = 21mm
+let d = 24mm
 let h = 23mm
 
 let dash_length = 5mm
@@ -55,10 +55,10 @@ for j in (h,)*copies {
     translate(y: page_height - offsety)
     // Front
     translate(x:d)
-    let image_height = h * 0.6
-    let image_y = (h/6*4)
+    let image_height = h * 0.5
+    let image_y = (h/6*4+1.5mm)
     // content(((w/2),- (h/2 +4mm)),  image("script/wax.jpg",height: h*0.6))
-        content(((w/2),- image_y),  image("pine.jpg",height: image_height))
+        content(((w/2),- image_y),  image("carrot-turmeric.jpg",height: image_height))
               //  content(((w/4*3),-image_y),  image("script/mint.jpg",height: image_height))
     content((w/2,-(h/5)),text(13pt,font: "C059")[Gulerod-Gurkemeje])
     content((w/2,-(h/5)*2),text(12pt,font: "C059")[Ansigtssæbe])

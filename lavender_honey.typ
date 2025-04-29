@@ -8,10 +8,10 @@ cetz.canvas(
   group({
 let marginx = 10mm
 let marginy = 10mm
-let w = 55mm
-let wback=56mm
-let d = 25mm
-let h = 23mm
+let w = 67mm
+let wback=67mm
+let d = 27mm
+let h = 33mm
 
 let dash_length = 5mm
 let page_height = 297mm
@@ -22,6 +22,12 @@ let copies =  calc.floor((page_height / h)-1)
 // Holds the full page
 rect((0,0),(page_width, page_height), stroke: (thickness: 0pt))
 
+// Debugs page corners
+// let circle_radius = 4mm
+// circle((circle_radius, circle_radius), radius: circle_radius)
+// circle((circle_radius, page_height - circle_radius), radius: circle_radius)
+// circle((page_width - circle_radius, circle_radius), radius: circle_radius)
+// circle((page_width - circle_radius, page_height - circle_radius), radius: circle_radius)
 translate(x:marginx, y: -marginy)
 
 // | | |
@@ -42,11 +48,6 @@ for i in (-dash_length, (0mm, d,w,d,wback,3*d/4).sum()) {
     offsety+=j
   }
 }
-  let offsety = 0mm
-  for i in (h,)*(copies+1) {
-    line((0,page_height - offsety),((0mm, d,w,d,wback,3*d/4).sum(), page_height - offsety),stroke:(thickness: 0.1mm, dash:"dashed"))
-    offsety+=i
-  }
 // Actual labels
 let offsety = 0mm
 for j in (h,)*copies {
@@ -54,13 +55,13 @@ for j in (h,)*copies {
     translate(y: page_height - offsety)
     // Front
     translate(x:d)
-    let image_height = h * 0.7
-    let image_y = (h/6*4)-1mm
+    let image_height = h * 0.6
+    let image_y = (h/6*4)
     // content(((w/2),- (h/2 +4mm)),  image("script/wax.jpg",height: h*0.6))
-        content(((w/2),- image_y),  image("calendula.png",height: image_height))
+        content(((w/2),- image_y),  image("lavender_honey.png",height: image_height))
               //  content(((w/4*3),-image_y),  image("script/mint.jpg",height: image_height))
-    content((w/2,-(h/5)),text(13pt,font: "C059")[Morgenfrue Salt-Scrub])
-    // content((w/2,-(h/5)*2),text(12pt,font: "C059")[Salt-scrub])
+    content((w/2,-(h/5)-2mm),text(21pt,font: "C059")[Lavendel-Honning])
+    // content((w/2,-(h/5)*2),text(13pt,font: "C059")[Shampoobar])
     // rect((0,0),(w,-h)) // debug
     // Back
     translate(x:w+d)
@@ -68,8 +69,8 @@ for j in (h,)*copies {
     content((w/2,-h/2),[
       #box(height: h,width: w,
       align(center+horizon)[
-      #text(7.5pt,font: "C059")[
-        Ingredienser: Kokosolie\*, Morgenfrue\*, Vand, Lud, Essentielle Olier (Citron\*, Citrongræs) \*=øko
+      #text(9pt,font: "C059")[
+        Ingredienser: Olivenolie\* , Kokosolie\*, Mandelolie\*, Ricinusolie\*, Vand, Lud, Lavendel\*, Honning, Bivoks, Essentiel Olie (Lavendel\*) \*=øko
         ] ])
     ], anchor: "center")
   })

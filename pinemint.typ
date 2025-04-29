@@ -8,8 +8,8 @@ cetz.canvas(
   group({
 let marginx = 10mm
 let marginy = 10mm
-let w = 54mm
-let wback=57mm
+let w = 67mm
+let wback=67mm
 let d = 21mm
 let h = 33mm
 
@@ -67,10 +67,10 @@ for j in (h,)*copies {
     translate(x:w+d)
     // rect((0,0),(w,-h)) // debug
     content((w/2,-h/2),[
-      #box(height: h,width: w,
+      #box(height: h,width: w - 5mm,
       align(center+horizon)[
       #text(7.5pt,font: "C059")[
-        Ingredienser: Olivenolie\*, Ricinusolie\*, Solsikke\*, Avokadoolie\*, Kokosolie\*,  Vand, Lud, Fyr\*, Essentielle Olier (Pebermynte\*, Lavendel\*, Fyr) \*=øko
+        Ingredienser: Olivenolie\*, Ricinusolie\*, Solsikkeolie\*, Avokadoolie\*, Kokosolie\*,  Vand, Lud, Fyr\*, Essentielle Olier (Pebermynte\*, Lavendel\*, Fyr) \*=øko
         ] ])
     ], anchor: "center")
   })

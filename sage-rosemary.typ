@@ -10,7 +10,7 @@ let marginx = 10mm
 let marginy = 10mm
 let w = 45mm
 let wback=46mm
-let d = 21mm
+let d = 25mm
 let h = 23mm
 
 let dash_length = 5mm

@@ -8,10 +8,11 @@ cetz.canvas(
   group({
 let marginx = 10mm
 let marginy = 10mm
-let w = 64mm
-let wback=64mm
-let d = 21mm
-let h = 23mm
+let w = 67mm
+let wback=67mm
+let d = 27mm
+let h = 33mm
+
 let dash_length = 5mm
 let page_height = 297mm
 let page_width = 210mm
@@ -54,9 +55,13 @@ for j in (h,)*copies {
     translate(y: page_height - offsety)
     // Front
     translate(x:d)
-    content(((w/2),- (h/2 +4mm)),  image("script/wax.jpg",height: h*0.6))
-    content((w/2,-(h/2-6mm)),text(19pt,font: "C059")[Honning-Bivoks])
-
+    let image_height = h * 0.6
+    let image_y = (h/6*4)
+    // content(((w/2),- (h/2 +4mm)),  image("script/wax.jpg",height: h*0.6))
+        content(((w/2),- image_y),  image("sunflower.jpg",height: image_height))
+              //  content(((w/4*3),-image_y),  image("script/mint.jpg",height: image_height))
+    content((w/2,-(h/5)),text(24pt,font: "C059")[Solsikke])
+    // content((w/2,-(h/5)*2),text(13pt,font: "C059")[Shampoobar])
     // rect((0,0),(w,-h)) // debug
     // Back
     translate(x:w+d)
@@ -64,8 +69,8 @@ for j in (h,)*copies {
     content((w/2,-h/2),[
       #box(height: h,width: w,
       align(center+horizon)[
-      #text(8pt,font: "C059")[
-        ("Ingredienser: Olivenolie\*, Mandelolie\*, Ricinusolie\*, Kokosolie\*, Vand, Lud, Honning\*, Bivoks, Essentiel olie (Lavendel\*)  \*=øko"
+      #text(7.5pt,font: "C059")[
+        Ingredienser: Olivenolie\*, Solsikkeolie\*, Kakaosmør\* , Kokosolie\*,  Vand, Lud, Solsikke\*, Majssilke\*, Annattofrø, Essentielle Olier (Appelsin\*, Citron\*, Litsea Cubeba) \*=øko
         ] ])
     ], anchor: "center")
   })
